@@ -6,12 +6,13 @@ namespace OoLab1
         public double height;
         public double width;
         public double sideLength;
+        private bool isSquare;
 
         public Rectangle( double width, double height)
         {
             this.height = Math.Abs(height);
             this.width = Math.Abs(width);
-            this.sideLength = -1;
+            this.isSquare = false;
         }
 
         public Rectangle(double sideLength)
@@ -19,6 +20,7 @@ namespace OoLab1
             this.height = Math.Abs(sideLength);
             this.width = Math.Abs(sideLength);
             this.sideLength = Math.Abs(sideLength);
+            this.isSquare = true;
         }
 
         public override double GetArea()
@@ -33,18 +35,18 @@ namespace OoLab1
 
         public override string ToString()
         {
-            if(this.sideLength == -1)   //Selects witch constructor to use.
+            if(this.isSquare)   
             {
                 string message = "This is a Rectangle with height "
-                                + $"{this.height}" + ", width " + $"{this.width}"
-                                + ". Area " + $"{this.GetArea()}"
-                                + " and perimeter " + $"{this.GetPerimeter()}" + ".";
+                        + $"{this.sideLength}" + ", width " + $"{this.sideLength}"
+                        + ". Area " + $"{this.GetArea()}"
+                        + " and perimeter " + $"{this.GetPerimeter()}" + ".";
                 return message;
             }
             else
             {
                 string message = "This is a Rectangle with height "
-                                + $"{this.sideLength}" + ", width " + $"{this.sideLength}"
+                                + $"{this.height}" + ", width " + $"{this.width}"
                                 + ". Area " + $"{this.GetArea()}"
                                 + " and perimeter " + $"{this.GetPerimeter()}" + ".";
                 return message;
