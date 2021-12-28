@@ -6,21 +6,23 @@ namespace OoLab1
         public double height;
         public double width;
         public double sideLength;
-        private bool isSquare;
+        
 
         public Rectangle( double width, double height)
         {
             this.height = Math.Abs(height);
             this.width = Math.Abs(width);
-            this.isSquare = false;
+         
         }
+
+        private bool isSquare => width == height;
 
         public Rectangle(double sideLength)
         {
             this.height = Math.Abs(sideLength);
             this.width = Math.Abs(sideLength);
             this.sideLength = Math.Abs(sideLength);
-            this.isSquare = true;
+         
         }
 
         public override double GetArea()
